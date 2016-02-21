@@ -1,3 +1,3 @@
-# testapp
+# Test apps
 
-Simple todo app with spring boot & angular js
+Repository for test apps.
