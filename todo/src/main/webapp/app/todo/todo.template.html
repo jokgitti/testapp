@@ -1,0 +1,51 @@
+<div ng-if="todoCtrl.state.is('todo')">
+    <div class="ui fluid left icon input action">
+        <input type="text" placeholder="Todo description"
+               ng-model="todoCtrl.todoDescription">
+        <i class="edit icon"></i>
+        <button class="ui button"
+                ng-click="todoCtrl.addTodo()">
+            Add
+        </button>
+    </div>
+
+    <h3 class="ui dividing header">Pending To-dos</h3>
+
+    <div class="ui middle aligned divided list">
+        <div class="item"
+             ng-repeat="todo in todoCtrl.pendingTodos">
+            <div class="right floated content">
+                <div class="ui button"
+                     ng-click="todoCtrl.updateTodo(todo.id)">
+                    Done
+                </div>
+                <div class="ui button"
+                     ng-click="todoCtrl.removeTodo(todo.id)">
+                    Remove
+                </div>
+            </div>
+            <div class="content">
+                {{todo.description}}
+            </div>
+        </div>
+    </div>
+
+    <h3 class="ui dividing header">Done To-dos</h3>
+
+    <div class="ui middle aligned divided list">
+        <div class="item"
+             ng-repeat="todo in todoCtrl.doneTodos">
+            <div class="right floated content">
+                <div class="ui button"
+                     ng-click="todoCtrl.todoDetails(todo.id)">
+                    Details
+                </div>
+            </div>
+            <div class="content">
+                {{todo.description}}
+            </div>
+        </div>
+    </div>
+</div>
+<ui-view ng-if="!todoCtrl.state.is('todo')"></ui-view>
+

@@ -1,0 +1,17 @@
+<div class="ui huge breadcrumb"
+     ng-repeat="section in breadCrumbCtrl.factory.getBreadCrumb()">
+    <a class="section"
+       ng-if="!$last"
+       ng-class="{ 'active' :  breadCrumbCtrl.state.is(section.name)}"
+       ui-sref="{{section.name}}">
+        {{section.label}}
+    </a>
+
+    <div class="section"
+         ng-if="$last"
+         ng-class="{ 'active' :  breadCrumbCtrl.state.is(section.name)}">
+        {{section.label}}
+    </div>
+    <i ng-if="!$last"
+       class="right chevron icon divider"></i>
+</div>
