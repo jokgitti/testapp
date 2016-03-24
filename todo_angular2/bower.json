@@ -1,0 +1,22 @@
+{
+  "name": "interaktingWeb",
+  "description": "Interakting web app",
+  "version": "0.1.0",
+  "homepage": "https://bitbucket.org/interakting/",
+  "authors": [
+    "Luca Galeazzi <jokgitti@gmail.com>",
+    "Domenico Sgueglia <domenicosgueglia.88@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~2.1.8",
+    "html5-boilerplate": "~5.2.0"
+  }
+}

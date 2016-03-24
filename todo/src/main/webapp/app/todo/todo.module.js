@@ -23,7 +23,7 @@
                 ctrl.repository.getTodos()
                     .success(function (data) {
 
-                        if (data.statusCode |= "OK") {
+                        if (data.statusCode != "OK") {
                             alert("error getting todos. Message: " + data.statusMessage);
                             return;
                         }
@@ -51,7 +51,7 @@
                 ctrl.repository.createTodo(ctrl.todoDescription)
                     .success(function (data) {
 
-                        if (data.statusCode |= "OK") {
+                        if (data.statusCode != "OK") {
                             alert("error adding todo. Message: " + data.statusMessage);
                             return;
                         }
@@ -70,7 +70,7 @@
                 ctrl.repository.updateTodo(todoId)
                     .success(function (data) {
 
-                        if (data.statusCode |= "OK") {
+                        if (data.statusCode != "OK") {
                             alert("error updating todo. Message: " + data.statusMessage);
                             return;
                         }
@@ -88,7 +88,7 @@
                 ctrl.repository.deleteTodo(todoId)
                     .success(function (data) {
 
-                        if (data.statusCode |= "OK") {
+                        if (data.statusCode != "OK") {
                             alert("error deleting todo. Message: " + data.statusMessage);
                             return;
                         }
