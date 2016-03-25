@@ -1,4 +1,7 @@
-import {bootstrap} from "angular2/bootstrap";
-import {TodoComponent} from "./todo/todo.component";
+import {ROUTER_PROVIDERS} from "angular2/router";
+import {bootstrap} from "angular2/platform/browser";
+import {AppComponent} from "./app.component";
 
-bootstrap(TodoComponent);
+bootstrap(AppComponent, [
+    ROUTER_PROVIDERS
+]);

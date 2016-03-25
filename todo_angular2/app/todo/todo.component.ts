@@ -1,11 +1,12 @@
 import {Component, OnInit} from "angular2/core";
-import {TodoService} from "./todo.service";
 import {Todo} from "../model/todo/todo";
+import {TodoService} from "./todo.service";
 import {DataHelperService} from "../common/dataHelper.service";
 
 @Component({
     selector: "todo",
-    templateUrl: "app/todo/todo.template.html"
+    templateUrl: "app/todo/todo.template.html",
+    providers: [TodoService]
 })
 export class TodoComponent implements OnInit {
 
