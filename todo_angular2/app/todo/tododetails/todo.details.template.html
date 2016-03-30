@@ -1,1 +1,17 @@
-<h1>Todo details component</h1>
+<div class="ui fluid card" *ngIf="todo">
+    <div class="content">
+        <div class="header">{{todo.description}}</div>
+    </div>
+    <div class="content">
+        <h4 class="ui sub header">Created</h4>
+
+        <div class="meta">
+            <span class="date">{{todo.created}}</span>
+        </div>
+        <h4 class="ui sub header">Updated</h4>
+
+        <div class="meta">
+            <span class="date">{{todo.updated}}</span>
+        </div>
+    </div>
+</div>

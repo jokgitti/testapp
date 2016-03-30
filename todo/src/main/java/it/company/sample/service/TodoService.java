@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/todo")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TodoService {
 
     @Autowired

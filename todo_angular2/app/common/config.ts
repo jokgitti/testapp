@@ -1,5 +1,5 @@
 export let CONFIG = {
     baseUrls: {
-        todo : "todo"
+        todo : "http://localhost:8080/todo"
     }
 }

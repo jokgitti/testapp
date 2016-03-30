@@ -1,1 +1,47 @@
-<h1>Todo component</h1>
+<div class="ui fluid left icon input action">
+    <input type="text" placeholder="Todo description"
+           ng-model="todoCtrl.todoDescription">
+    <i class="edit icon"></i>
+    <button class="ui button"
+            ng-click="todoCtrl.addTodo()">
+        Add
+    </button>
+</div>
+
+<h3 class="ui dividing header">Pending To-dos</h3>
+
+<div class="ui middle aligned divided list">
+    <div class="item"
+         *ngFor="#todo of pendingTodos">
+        <div class="right floated content">
+            <div class="ui button"
+                 (click)="updateTodo(todo.id)">
+                Done
+            </div>
+            <div class="ui button"
+                 (click)="deleteTodo(todo.id)">
+                Remove
+            </div>
+        </div>
+        <div class="content">
+            {{todo.description}}
+        </div>
+    </div>
+</div>
+
+<h3 class="ui dividing header">Done To-dos</h3>
+
+<div class="ui middle aligned divided list">
+    <div class="item"
+         *ngFor="#todo of doneTodos">
+        <div class="right floated content">
+            <div class="ui button"
+                 (click)="todoDetails(todo)">
+                Details
+            </div>
+        </div>
+        <div class="content">
+            {{todo.description}}
+        </div>
+    </div>
+</div>

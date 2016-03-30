@@ -7,7 +7,7 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             exports_1("CONFIG", CONFIG = {
                 baseUrls: {
-                    todo: "todo"
+                    todo: "http://localhost:8080/todo"
                 }
             });
         }

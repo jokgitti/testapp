@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./todo.service", "../common/dataHelper.service"], function(exports_1, context_1) {
+System.register(["angular2/core", "./todo.service", "../common/dataHelper.service", "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "./todo.service", "../common/dataHelper.servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, todo_service_1, dataHelper_service_1;
+    var core_1, todo_service_1, dataHelper_service_1, router_1;
     var TodoComponent;
     return {
         setters:[
@@ -22,10 +22,14 @@ System.register(["angular2/core", "./todo.service", "../common/dataHelper.servic
             },
             function (dataHelper_service_1_1) {
                 dataHelper_service_1 = dataHelper_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             TodoComponent = (function () {
-                function TodoComponent(_service, _dataHelper) {
+                function TodoComponent(_router, _service, _dataHelper) {
+                    this._router = _router;
                     this._service = _service;
                     this._dataHelper = _dataHelper;
                 }
@@ -35,11 +39,11 @@ System.register(["angular2/core", "./todo.service", "../common/dataHelper.servic
                 TodoComponent.prototype.getTodos = function () {
                     var _this = this;
                     this._service.getAllTodos()
-                        .subscribe(function (data) {
-                        _this._dataHelper.validateGenericResponse(data);
-                        _this.todos = data.todos;
-                        _this.pendingTodos = data.todos.filter(function (todo) { return !todo.done; });
-                        _this.doneTodos = data.todos.filter(function (todo) { return todo.done; });
+                        .subscribe(function (response) {
+                        _this._dataHelper.validateGenericResponse(response);
+                        _this.todos = response.todos;
+                        _this.pendingTodos = response.todos.filter(function (todo) { return !todo.done; });
+                        _this.doneTodos = response.todos.filter(function (todo) { return todo.done; });
                     });
                 };
                 TodoComponent.prototype.addTodo = function () {
@@ -64,13 +68,17 @@ System.register(["angular2/core", "./todo.service", "../common/dataHelper.servic
                         _this._dataHelper.validateGenericResponse(data);
                     });
                 };
+                TodoComponent.prototype.todoDetails = function (todo) {
+                    var link = ["TodoDetails", { id: todo.id }];
+                    this._router.navigate(link);
+                };
                 TodoComponent = __decorate([
                     core_1.Component({
                         selector: "todo",
                         templateUrl: "app/todo/todo.template.html",
-                        providers: [todo_service_1.TodoService]
+                        providers: [todo_service_1.TodoService, dataHelper_service_1.DataHelperService]
                     }), 
-                    __metadata('design:paramtypes', [todo_service_1.TodoService, dataHelper_service_1.DataHelperService])
+                    __metadata('design:paramtypes', [router_1.Router, todo_service_1.TodoService, dataHelper_service_1.DataHelperService])
                 ], TodoComponent);
                 return TodoComponent;
             }());

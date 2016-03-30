@@ -37,7 +37,8 @@ System.register(["angular2/core", "angular2/http", "./todo/todo.component", "ang
                     core_1.Component({
                         selector: "app",
                         templateUrl: "app/app.template.html",
-                        providers: [http_1.Http, router_1.ROUTER_PROVIDERS, todo_component_1.TodoComponent, todo_details_component_1.TodoDetailsComponent]
+                        providers: [http_1.HTTP_PROVIDERS, router_1.ROUTER_PROVIDERS, todo_component_1.TodoComponent, todo_details_component_1.TodoDetailsComponent],
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         { path: "/todos", name: "Todos", component: todo_component_1.TodoComponent, useAsDefault: true },
